@@ -477,7 +477,7 @@ void InputReader::addDeviceLocked(nsecs_t when, int32_t deviceId) {
 		}
     }
 
-	if(mVirtualTouchCreated == false)
+/*	if(mVirtualTouchCreated == false)
     {
         addVirtualTouchDevice(when,classes);
 
@@ -489,7 +489,7 @@ void InputReader::addDeviceLocked(nsecs_t when, int32_t deviceId) {
         mRealTouchDeviceId = deviceId;
 
         return ;
-    }
+    }*/
 	
     InputDevice* device = createDeviceLocked(deviceId, name, classes);
     device->configure(when, &mConfig, 0);
@@ -524,14 +524,14 @@ void InputReader::removeDeviceLocked(nsecs_t when, int32_t deviceId) {
 		}
 	}
 
-	if(mRealTouchDeviceId == deviceId)
+/*	if(mRealTouchDeviceId == deviceId)
     {
         mRealTouchDeviceId = -1;
         
         LOGD("remove touch device!\n");
         
         return ;
-    }
+    }*/
     InputDevice* device = NULL;
     ssize_t deviceIndex = mDevices.indexOfKey(deviceId);
     if (deviceIndex >= 0) {
@@ -642,10 +642,10 @@ void InputReader::convertEvent(const RawEvent* rawEvents,size_t count)
 				}
 			}
 
-			if(tmpRawEvent->deviceId == mRealTouchDeviceId)
+		/*	if(tmpRawEvent->deviceId == mRealTouchDeviceId)
 		    {
 		        tmpRawEvent->deviceId  = mTouchDeviceId;      
-		    }
+		    }*/
 
 		    if(mKeyInMouseMode)
 		    {
